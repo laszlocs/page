@@ -1,0 +1,390 @@
+:root {
+    --gap: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --gap: 1rem;
+    }
+}
+
+/*
+.content-box {
+    max-width: 1440px;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+*/
+.vertical-center {
+    align-items: center;
+}
+
+.row {
+    width: calc(100% + var(--gap));
+}
+
+
+.row,
+.column-2,
+.column-3,
+.column-4,
+.column-5,
+.column-6,
+.column-7,
+.column-8,
+.column-9 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    clear: both;
+}
+
+.no-gap,
+.no-gap.row {
+    gap: 0;
+}
+
+
+.no-gap.row {
+    width: 100%;
+}
+
+.col-1-2 {
+    width: calc(50% - var(--gap))
+}
+
+.col-1-3 {
+    width: calc(33.3333% - var(--gap))
+}
+
+.col-2-3 {
+    width: calc(66.6666% - var(--gap))
+}
+
+.col-1-4 {
+    width: calc(25% - var(--gap))
+}
+
+.col-3-4 {
+    width: calc(75% - var(--gap))
+}
+
+.col-1-5 {
+    width: calc(20% - var(--gap))
+}
+
+.col-2-5 {
+    width: calc(40% - var(--gap))
+}
+
+.col-3-5 {
+    width: calc(60% - var(--gap))
+}
+
+.col-4-5 {
+    width: calc(80% - var(--gap))
+}
+
+.col-1-6 {
+    width: calc(16.6667% - var(--gap))
+}
+
+.col-5-6 {
+    width: calc(83.3335% - var(--gap))
+}
+
+.no-gap .col-1-2 {
+    width: 50%
+}
+
+.no-gap .col-1-3 {
+    width: 33.3333%
+}
+
+.no-gap .col-2-3 {
+    width: 66.6666%
+}
+
+.no-gap .col-1-4 {
+    width: 25%
+}
+
+.no-gap .col-3-4 {
+    width: 75%
+}
+
+.no-gap .col-1-5 {
+    width: 20%
+}
+
+.no-gap .col-2-5 {
+    width: 40%
+}
+
+.no-gap .col-3-5 {
+    width: 60%
+}
+
+.no-gap .col-4-5 {
+    width: 80%
+}
+
+.no-gap .col-1-6 {
+    width: 16.6667%
+}
+
+.no-gap .col-5-6 {
+    width: 83.3335%
+}
+
+.column-2>div,
+.column-2 article {
+    width: calc((100% - (1 * var(--gap))) / 2)
+}
+
+.column-3>div,
+.column-3 article {
+    width: calc((100% - (2 * var(--gap))) / 3)
+}
+
+.column-4>div,
+.column-4 article {
+    width: calc((100% - (3 * var(--gap))) / 4)
+}
+
+.column-5>div,
+.column-5 article {
+    width: calc((100% - (4 * var(--gap))) / 5)
+}
+
+.column-6>div,
+.column-6 article {
+    width: calc((100% - (5 * var(--gap))) / 6)
+}
+
+.column-7>div,
+.column-7 article {
+    width: calc((100% - (6 * var(--gap))) / 7)
+}
+
+.column-8>div,
+.column-8 article {
+    width: calc((100% - (7 * var(--gap))) / 8)
+}
+
+.column-9>div,
+.column-9 article {
+    width: calc((100% - (8 * var(--gap))) / 9)
+}
+
+.no-gap.column-2>div,
+.no-gap.column-2 article {
+    width: calc(100% / 2)
+}
+
+.no-gap.column-3>div,
+.no-gap.column-3 article {
+    width: calc(100% / 3)
+}
+
+.no-gap.column-4>div,
+.no-gap.column-4 article {
+    width: calc(100% / 4)
+}
+
+.no-gap.column-5>div,
+.no-gap.column-5 article {
+    width: calc(100% / 5)
+}
+
+.no-gap.column-6>div,
+.no-gap.column-6 article {
+    width: calc(100% / 6)
+}
+
+.no-gap.column-7>div,
+.no-gap.column-7 article {
+    width: calc(100% / 7)
+}
+
+.no-gap.column-8>div,
+.no-gap.column-8 article {
+    width: calc(100% / 8)
+}
+
+.no-gap.column-9>div,
+.no-gap.column-9 article {
+    width: calc(100% / 9)
+}
+
+@media screen and (min-width: 768px) and (max-width:1024px) {
+
+    .column-4>div,
+    .column-4 article,
+    .column-5>div,
+    .column-5 article,
+    .column-6>div,
+    .column-6 article {
+        width: calc((100% - (2 * var(--gap))) / 3)
+    }
+
+    .column-7>div,
+    .column-7 article,
+    .column-8>div,
+    .column-8 article,
+    .column-9>div,
+    .column-9 article {
+        width: calc((100% - (3 * var(--gap))) / 4)
+    }
+
+    .no-gap.column-4>div,
+    .no-gap.column-4 article,
+    .no-gap.column-5>div,
+    .no-gap.column-5 article,
+    .no-gap.column-6>div,
+    .no-gap.column-6 article {
+        width: calc(100% / 3)
+    }
+
+    .no-gap.column-7>div,
+    .no-gap.column-7 article,
+    .no-gap.column-8>div,
+    .no-gap.column-8 article,
+    .no-gap.column-9>div,
+    .no-gap.column-9 article {
+        width: calc(100% / 4)
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width:767px) {
+
+    .column-3>div,
+    .column-3 article,
+    .column-4>div,
+    .column-4 article,
+    .column-5>div,
+    .column-5 article {
+        width: calc((100% - (1 * var(--gap))) / 2)
+    }
+
+    .column-6>div,
+    .column-6 article,
+    .column-7>div,
+    .column-7 article {
+        width: calc((100% - (2 * var(--gap))) / 3)
+    }
+
+    .column-8>div,
+    .column-8 article,
+    .column-9>div,
+    .column-9 article {
+        width: calc((100% - (3 * var(--gap))) / 4)
+    }
+
+    .no-gap.column-3>div,
+    .no-gap.column-3 article,
+    .no-gap.column-4>div,
+    .no-gap.column-4 article,
+    .no-gap.column-5>div,
+    .no-gap.column-5 article {
+        width: calc(100% / 2)
+    }
+
+    .no-gap.column-6>div,
+    .no-gap.column-6 article,
+    .no-gap.column-7>div,
+    .no-gap.column-7 article {
+        width: calc(100% / 3)
+    }
+
+    .no-gap.column-8>div,
+    .no-gap.column-8 article,
+    .no-gap.column-9>div,
+    .no-gap.column-9 article {
+        width: calc(100% / 4)
+    }
+}
+
+@media screen and (max-width: 479px) {
+
+    .column-2>div,
+    .column-2 article,
+    .column-3>div,
+    .column-3 article {
+        width: 100%
+    }
+
+    .column-4>div,
+    .column-4 article,
+    .column-5>div,
+    .column-5 article,
+    .column-6>div,
+    .column-6 article {
+        width: calc((100% - (1 * var(--gap))) / 2)
+    }
+
+    .column-7>div,
+    .column-7 article,
+    .column-8>div,
+    .column-8 article,
+    .column-9>div,
+    .column-9 article {
+        width: calc((100% - (2 * var(--gap))) / 3)
+    }
+
+    .no-gap.column-2>div,
+    .no-gap.column-2 article,
+    .no-gap.column-3>div,
+    .no-gap.column-3 article {
+        width: 100%
+    }
+
+    .no-gap.column-4>div,
+    .no-gap.column-4 article,
+    .no-gap.column-5>div,
+    .no-gap.column-5 article,
+    .no-gap.column-6>div,
+    .no-gap.column-6 article {
+        width: calc(100% / 2)
+    }
+
+    .no-gap.column-7>div,
+    .no-gap.column-7 article,
+    .no-gap.column-8>div,
+    .no-gap.column-8 article,
+    .no-gap.column-9>div,
+    .no-gap.column-9 article {
+        width: calc(100% / 3)
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .row {
+        width: 100%;
+    }
+
+    .col-1-2,
+    .col-1-3,
+    .col-2-3,
+    .col-1-4,
+    .col-3-4,
+    .col-1-5,
+    .col-2-5,
+    .col-3-5,
+    .col-4-5,
+    .col-1-6,
+    .col-5-6,
+    .no-gap .col-1-2,
+    .no-gap .col-1-3,
+    .no-gap .col-2-3,
+    .no-gap .col-1-4,
+    .no-gap .col-3-4,
+    .no-gap .col-1-5,
+    .no-gap .col-2-5,
+    .no-gap .col-3-5,
+    .no-gap .col-4-5,
+    .no-gap .col-1-6,
+    .no-gap .col-5-6 {
+        width: 100%
+    }
+}
