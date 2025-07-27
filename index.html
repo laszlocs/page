@@ -1,1 +1,438 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Önéletrajz</title>  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z' fill='%232d7fb9'/%3E%3C/svg%3E" type="image/svg+xml">    
+  <style>
+    /* ALAP BEÁLLÍTÁSOK ÉS RESET */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+}
+
+/* KONTÉNER ÉS RÁCSOS ELRENDEZÉS */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;    
+    gap: 25px;
+    padding: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+    .container {        
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    /* A 2 oszlopos nézetben a tapasztalat és tanulmányok teljes szélességűek */
+    /* .resume {
+        grid-column: 1 / -1;
+    } */
+}
+
+/* ÁLTALÁNOS DOBOZ STÍLUS */
+.box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.section-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2d7fb9;
+    border-bottom: 2px solid #eef;
+    padding-bottom: 10px;
+}
+
+/* PROFIL SZEKCIÓ */
+.profile .center-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #2d7fb9;
+    object-fit: cover;
+}
+.profile .title {
+    text-align: center;
+}
+.profile .bold {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.profile .regular {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+}
+.profile .line {
+    border: 0;
+    height: 2px;
+    background-color: #2d7fb9;
+    width: 80px;
+    margin: 20px auto;
+}
+.profile .summary {
+    font-size: 16px;
+    color: #444;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ELÉRHETŐSÉGEK */
+img {
+  width: auto;
+  height: 40px;
+}
+.contact-info ul {
+    list-style: none;
+}
+.contact-info li {
+    margin-bottom: 15px;
+}
+.contact-info .inline-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.contact-info img {
+    /* filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(180deg) brightness(90%) contrast(90%); */
+}
+.contact-info a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+.contact-info a:hover {
+    color: #2d7fb9;
+}
+
+/* KÉPESSÉGEK (SKILLS) */
+.skills .skill {
+    margin-bottom: 15px;
+}
+.skill-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 22px;
+}
+.skill-fill {
+    background-color: #2d7fb9;
+    height: 100%;
+    text-align: center;
+    font-size: 13px;
+    line-height: 22px;
+    color: #fff;
+    border-radius: 5px;
+    transition: width 0.8s ease-in-out;
+}
+
+/* TAPASZTALAT ÉS TANULMÁNYOK (IDŐVONAL) */
+.resume .substrate {
+    padding: 0;
+}
+.timeline {
+    border-left: 3px solid #2d7fb9;
+    padding-left: 25px;
+    position: relative;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 4px solid #2d7fb9;
+}
+.timeline-period {
+    background-color: #2d7fb9;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 15px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.timeline-content h3 {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+.timeline-content h4 {
+    font-size: 16px;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+.timeline-content p {
+    font-size: 15px;
+    color: #444;
+}
+
+/* LÁBLÉC */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 14px;
+}
+  </style>
+</head>
+<body>
+
+  <main class="container">
+
+    <!-- PROFIL SZEKCIÓ -->
+    <section class="box profile">
+      <div class="center-container">
+        <img class="profile-img" src="img/IMG_1322 portre-bg.png" alt="Profilkép">
+      </div>
+      <div class="title">
+        <p class="bold">Csókos László</p>
+        <p class="regular">
+          Központi irattáros | Számítógép-rendszergazda | Webáruház-adminisztrátor | Webdesigner
+        </p>
+        <hr class="line">
+        <p class="summary">
+          Több évtizedes tapasztalattal rendelkezem adminisztrációs, iratkezelési és informatikai területeken. Pályafutásom során precíz és megbízható munkavégzés jellemzett, mind a központi irattározás, mind a rendszergazdai feladatok ellátása során. Jelenleg webfejlesztési és design ismereteimet mélyítem, hogy a modern digitális világban is értéket teremthessek.
+        </p>
+      </div>
+    </section>
+
+    <!-- ELÉRHETŐSÉGEK SZEKCIÓ -->
+    <section class="box contact-info">
+      <h2 class="section-title">Elérhetőségek</h2>
+      <ul>
+        <li>
+          <div class="inline-content">
+            <!-- <img src="https://img.icons8.com/ios-filled/50/2d7fb9/home.png" alt="Lakcím ikon" width="30" height="30"> -->
+            <img src="img/home-OK-OK-OK.svg " alt="exterior"/>
+            <a href="https://www.google.com/maps/place/Budapest,+Visegr%C3%A1di+u./@47.5212797,19.0568877,17z/data=!3m1!4b1!4m6!3m5!1s0x4741dbf69a3e4b85:0x9fed063d6648d309!8m2!3d47.5212797!4d19.0594626!16s%2Fg%2F1tj4xh3f?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">1132 Budapest, Visegrádi utca </a>
+          </div>
+        </li>
+        <li>
+          <div class="inline-content">
+            <!-- <img src="https://img.icons8.com/ios-filled/50/2d7fb9/phone.png" alt="Telefon ikon" width="30" height="30"> -->
+            <img src="img/smartphone-mobile-OK-OK-OK-phone-svgrepo-com.svg " alt="Telefon ikon" width="30" height="30">
+             
+            <a href="tel:+36306810400">+36 30 681 0400</a>
+          </div>
+        </li>
+        <li>
+          <div class="inline-content">
+            <!-- <img src="https://img.icons8.com/ios-filled/50/2d7fb9/mail.png" alt="Email ikon" width="30" height="30"> -->
+            <img src="img/email OK-OK-OK-mail-svgrepo-com (3).svg" alt="Mail ikon" width="30" height="30">
+             
+            <a href="mailto:laszlocss@gmail.com">laszlocss@gmail.com</a>
+          </div>
+        </li>
+        <li>
+          <div class="inline-content">
+            <!-- <img src="https://img.icons8.com/ios-filled/50/2d7fb9/domain.png" alt="Weblap ikon" width="30" height="30"> -->
+            <img src="img/Web-svg.svg" alt="Weblap ikon" width="30" height="30">
+             
+            <a href="https://laszlocs.github.io/cv/" target="_blank">Weblap</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PROGRAMISMERET SZEKCIÓ -->
+    <section class="box skills">
+      <h2 class="section-title">Programismeret</h2>
+      <div class="skill">
+        <label>VSCode</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 95%;">95%</div></div>
+      </div>
+      <div class="skill">
+        <label>PCode</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 90%;">90%</div></div>
+      </div>
+      <div class="skill">
+        <label>Affinity Designer</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 90%;">90%</div></div>
+      </div>
+      <div class="skill">
+        <label>Affinity Photo</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 70%;">70%</div></div>
+      </div>
+      <div class="skill">
+        <label>Affinity Publisher</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 50%;">50%</div></div>
+      </div>
+    </section>
+
+    <!-- TECHNIKAI ISMERETEK SZEKCIÓ -->
+    <section class="box skills">
+      <h2 class="section-title">Számítástechnikai ismeretek</h2>
+      <div class="skill">
+        <label>HTML 5</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 95%;">95%</div></div>
+      </div>
+      <div class="skill">
+        <label>CSS 3</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 90%;">90%</div></div>
+      </div>
+      <div class="skill">
+        <label>JavaScript</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 60%;">60%</div></div>
+      </div>
+      <div class="skill">
+        <label>WordPress</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 70%;">70%</div></div>
+      </div>
+      <div class="skill">
+        <label>Joomla</label>
+        <div class="skill-bar"><div class="skill-fill" style="width: 50%;">50%</div></div>
+      </div>
+    </section>
+
+    <!-- MUNKATAPASZTALAT SZEKCIÓ -->
+    <section class="box resume">
+      <div class="substrate">
+        <h2 class="section-title">Munkatapasztalat</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-period">1994 - 2016</div>
+            <div class="timeline-content">
+              <h3>OMVH, KÖH</h3>
+              <h4>Főmunkatárs, központi irattáros</h4>
+              <p>
+                A Központi Irattár teljes körű működtetése, beleértve a beérkező és kimenő iratok szabályszerű átvételét, kiadását és naprakész nyilvántartását. Feladatom volt az iratanyagok mozgásának nyomon követése, valamint a selejtezési és levéltárba adási folyamatok előkészítése és koordinálása az iratkezelési szabályzatnak megfelelően.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">1975 - 1984</div>
+            <div class="timeline-content">
+              <h3>Magyar Televízió</h3>
+              <h4>Technikus</h4>
+              <p>
+                Közreműködés a televíziós műsorok gyártási folyamataiban, az erősáramú berendezések üzemeltetése és karbantartása. Részt vettem a felvételek technikai előkészítésében és a zökkenőmentes adáslebonyolítás biztosításában.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">1971 - 1975</div>
+            <div class="timeline-content">
+              <h3>KIPSZER</h3>
+              <h4>Érintésvédelmi mérő</h4>
+              <p>
+                Villamos berendezések és hálózatok időszakos érintésvédelmi felülvizsgálata, mérések elvégzése és jegyzőkönyvek készítése a hatályos szabványoknak és előírásoknak megfelelően. A feladatkörbe tartozott a hibák feltárása és a biztonságos üzemeltetéshez szükséges javaslatok megtétele.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TANULMÁNYOK SZEKCIÓ -->
+    <section class="box resume">
+      <div class="substrate">
+        <h2 class="section-title">Tanulmányok és Képesítések</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-period">2002 - 2005</div>
+            <div class="timeline-content">
+              <h3>Magyar Országos Levéltár</h3>
+              <h4>Segédlevéltáros</h4>
+              <p>
+                Felsőfokú végzettségű levéltárosok munkájának támogatása, részvétel a levéltári iratok rendezésében, feldolgozásában és nyilvántartásában. Közreműködés az ügyfél- és kutatószolgálati feladatok ellátásában. 
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">2000 - 2001</div>
+            <div class="timeline-content">
+              <h3>Soter-Line</h3>
+              <h4>Rendszerinformatikus</h4>
+              <p>
+                Vállalati informatikai rendszerek és hálózatok telepítése, konfigurálása és karbantartása. Feladatkörömbe tartozott a szoftverfrissítések kezelése, a rendszerbiztonság felügyelete és a felhasználók számára nyújtott technikai támogatás. 
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">2000 - 2001</div>
+            <div class="timeline-content">
+              <h3>Superior-Computer Bt</h3>
+              <h4>Rendszergazda</h4>
+              <p>
+                Számítógépes hálózatok és szerverek üzemeltetése, hardver- és szoftverhibák elhárítása. Felelős voltam a rendszeres adatmentésekért, a felhasználói fiókok kezeléséért és az informatikai infrastruktúra stabil működésének biztosításáért. 
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">1967 - 1971</div>
+            <div class="timeline-content">
+              <h3>Erősáramú Technikum</h3>
+              <h4>Erősáramú Technikus</h4>
+              <p>
+                Villamos berendezések és energetikai hálózatok létesítésével, üzemeltetésével és karbantartásával kapcsolatos műszaki ismeretek elsajátítása. A képzés során villamos kapcsolási rajzok értelmezését, mérések elvégzését és a vonatkozó biztonsági előírások alkalmazását tanultam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="copyright">
+    <p>&copy; <span id="year"></span> Minden jog fenntartva.</p>
+  </footer>
+
+  <script>// script.js
+    // Várjuk meg, amíg a teljes HTML dokumentum betöltődik
+    document.addEventListener('DOMContentLoaded', (event) => {
+        
+        // Dinamikusan beállítjuk az aktuális évet a láblécben
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+
+    });
+  </script>
+</body>
+</html>
